@@ -14,10 +14,10 @@ def increment_file_numbers(directoryPath, className):
         os.rename(directoryPath+"\\"+fileName,newName )
         fileCount += 1
 
-PATH = "" #Path of the directory containing class folders
+PATH = "." #Path of the directory containing class folders
 		  #Eg: C:/Users/Administrator/Desktop/dogscats
 dirPath = os.path.abspath(PATH) 
-for className in os.listdir(dirPATH):
-    increment_file_numbers(dirPATH+"\\"+className, className)
+for className in os.listdir(dirPath):
+    increment_file_numbers(dirPath+"\\"+className, className)
 
 
