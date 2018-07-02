@@ -41,10 +41,13 @@ for className in os.listdir(PATH):
         temp = itemName.split(".")
         
         if int(temp[1]) in testIndex:
+            print("Adding "+itemName+" to Test")
             os.rename(PATH+"/"+className+"/"+itemName, DATASETPATH+"/"+"test"+"/"+itemName)
         elif int(temp[1]) in validIndex:
+            print("Adding "+itemName+" to Valid")
             os.rename(PATH+"/"+className+"/"+itemName, DATASETPATH+"/"+"valid"+"/"+className+"/"+itemName)
         else:
+            print("Adding "+itemName+" to Train")
             os.rename(PATH+"/"+className+"/"+itemName, DATASETPATH+"/"+"train"+"/"+className+"/"+itemName)
     
 
