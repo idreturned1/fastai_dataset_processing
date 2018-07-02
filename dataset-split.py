@@ -11,7 +11,10 @@ DATASETPATH = os.path.abspath('.')
 testRatio = 0.2 #define the ratio of test cases
 validRatio = 0.2 #define the number of valid cases
 
-directories = ['test','train','valid']
+if not os.path.exists(DATASETPATH+'/'+'test'):
+        os.makedirs(DATASETPATH+'/'+'test')
+		
+directories = ['train','valid']
 for dir in directories:
     if not os.path.exists(DATASETPATH+'/'+dir):
         os.makedirs(DATASETPATH+'/'+dir)
@@ -38,10 +41,13 @@ for className in os.listdir(PATH):
         temp = itemName.split(".")
         
         if int(temp[1]) in testIndex:
-            os.rename(PATH+"/"+className+"/"+itemName, DATASETPATH+"/"+"test"+"/"+className+"/"+itemName)
+            print("Adding "+itemName+" to Test")
+            os.rename(PATH+"/"+className+"/"+itemName, DATASETPATH+"/"+"test"+"/"+itemName)
         elif int(temp[1]) in validIndex:
+            print("Adding "+itemName+" to Valid")
             os.rename(PATH+"/"+className+"/"+itemName, DATASETPATH+"/"+"valid"+"/"+className+"/"+itemName)
         else:
+            print("Adding "+itemName+" to Train")
             os.rename(PATH+"/"+className+"/"+itemName, DATASETPATH+"/"+"train"+"/"+className+"/"+itemName)
     
 
