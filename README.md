@@ -1,6 +1,6 @@
 # fastai_dataset_processing
 
-1. Reaname<br>
+1. Rename<br>
 	a. Description<br>
 		Renames the data files for all classes in the format - "class-name.image-number.jpg" (fast.ai format)
 
